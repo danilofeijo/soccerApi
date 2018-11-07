@@ -3,16 +3,37 @@ const port = 8081;
 
 const server = express();
 
+const TEAMS = [
+  {
+    name: 'Liverpool F.C.',
+    stadium: 'Anfield',
+    foundation: '1892',
+    rival: 'Everton F.C.'
+  },
+  {
+    name: 'Manchester United F.C.',
+    stadium: 'Old Trafford',
+    foundation: '1878',
+    rival: 'Manchester City F.C.'
+  },
+  {
+    name: 'Tottenham Hotspur F.C.',
+    stadium: 'Wembley Stadium',
+    foundation: '1882',
+    rival: 'Arsenal F.C.'
+  }
+]
+
 server.get('/', (request, response) => {
   response.send('<h1>Home</h1>');
 })
 
-server.get('/teams', (request, response) => {
-  response.send('<h1>Teams</h1>');
+server.get('/teams', (req, res) => {
+  res.send(TEAMS);
 })
 
 server.get('/championships', (request, response) => {
-  response.send('<h1>Championships</h1>');
+  response.send('<h1>Championships</h1> <img src="http://a.espncdn.com/combiner/i?img=%2Fi%2Fleaguelogos%2Fsoccer%2F500%2F2.png">');
 })
 
 server.get('/players', (request, response) => {
