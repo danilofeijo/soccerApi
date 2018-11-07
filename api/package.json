@@ -2,13 +2,15 @@
   "name": "soccerapi",
   "version": "1.0.0",
   "description": "It is a basic API created to practice API development and automation as well",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon"
   },
   "author": "Danilo Feijo",
   "license": "MPL-2.0",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "nodemon": "^1.18.6"
   }
 }
