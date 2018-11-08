@@ -24,6 +24,11 @@ const TEAMS = [
   }
 ]
 
+server.use((req, res, next) => {
+  console.log('User URL:', req.url);
+  next();
+})
+
 server.get('/', (request, response) => {
   response.send('<h1>Home</h1>');
 })
@@ -47,6 +52,10 @@ server.get('/countries', (request, response) => {
 server.get('/notfound', (request, response) => {
   response.send('<h1>Page Not Found</h1>');
 })
+
+server.use((req, res, next) => {
+  res.send({msg:'Path not found. Try another option :)'});
+});
 
 
 server.listen(port, () => {
