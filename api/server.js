@@ -45,7 +45,7 @@ server.get('/teams', (req, res) => {
 })
 
 server.get('/championships', (request, response) => {
-  response.send('<h1>Championships</h1> <img src="http://a.espncdn.com/combiner/i?img=%2Fi%2Fleaguelogos%2Fsoccer%2F500%2F2.png">');
+  response.send('<h1>Championships</h1>');
 })
 
 server.get('/players', (request, response) => {
