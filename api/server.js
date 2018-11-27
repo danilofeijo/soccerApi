@@ -24,9 +24,16 @@ const TEAMS = [
   }
 ]
 
+const logged = true;
+
 server.use((req, res, next) => {
   console.log('User URL:', req.url);
-  next();
+
+  if (logged) {
+    next();
+  } else {
+    res.send('You are not logged. Please sign in')
+  }
 })
 
 server.get('/', (request, response) => {
