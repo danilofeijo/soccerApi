@@ -5,18 +5,21 @@ const server = express();
 
 const TEAMS = [
   {
+    id: 1,
     name: 'Liverpool F.C.',
     stadium: 'Anfield',
     foundation: '1892',
     rival: 'Everton F.C.'
   },
   {
+    id: 2,
     name: 'Manchester United F.C.',
     stadium: 'Old Trafford',
     foundation: '1878',
     rival: 'Manchester City F.C.'
   },
   {
+    id: 3,
     name: 'Tottenham Hotspur F.C.',
     stadium: 'Wembley Stadium',
     foundation: '1882',
@@ -42,6 +45,11 @@ server.get('/', (request, response) => {
 
 server.get('/teams', (req, res) => {
   res.send(TEAMS);
+})
+
+server.post('/teams', (req, res) => {
+  const newTeam = req.body;
+  res.send(newTeam);
 })
 
 server.get('/championships', (request, response) => {
