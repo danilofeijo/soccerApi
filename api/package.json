@@ -10,6 +10,7 @@
   "author": "Danilo Feijo",
   "license": "MPL-2.0",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "nodemon": "^1.18.6"
   }
