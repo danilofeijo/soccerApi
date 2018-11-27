@@ -13,21 +13,24 @@ const TEAMS = [
     name: 'Liverpool F.C.',
     stadium: 'Anfield',
     foundation: '1892',
-    rival: 'Everton F.C.'
+    city: "Liverpool",
+    country: "England"
   },
   {
     id: 2,
     name: 'Manchester United F.C.',
     stadium: 'Old Trafford',
     foundation: '1878',
-    rival: 'Manchester City F.C.'
+    city: "Manchester",
+    country: "England"
   },
   {
     id: 3,
     name: 'Tottenham Hotspur F.C.',
     stadium: 'Wembley Stadium',
     foundation: '1882',
-    rival: 'Arsenal F.C.'
+    city: "London",
+    country: "England"
   }
 ]
 
