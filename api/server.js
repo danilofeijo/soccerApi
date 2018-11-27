@@ -1,7 +1,11 @@
 const express = require('express');
-const port = 8081;
+const bodyParser = require('body-parser');
 
+const port = 8081;
 const server = express();
+
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.json());
 
 const TEAMS = [
   {
