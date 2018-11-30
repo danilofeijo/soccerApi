@@ -59,8 +59,8 @@ server.post('/teams', (req, res) => {
   res.send(newTeam);
 })
 
-server.get('/championships', (request, response) => {
-  response.send('<h1>Championships</h1>');
+server.get('/tournaments', (request, response) => {
+  response.send('<h1>Tournaments</h1>');
 })
 
 server.get('/players', (request, response) => {
