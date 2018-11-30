@@ -59,7 +59,13 @@ server.get('/teams', (req, res) => {
 
 server.post('/teams', (req, res) => {
   const newTeam = req.body;
-  res.send(newTeam);
+
+  TEAMS.push({ id: TEAMS.length + 1, ...newTeam });
+
+  res.send({
+    addedTeam: newTeam,
+    teamList: TEAMS
+  });
 })
 
 // Tournaments endpoints
