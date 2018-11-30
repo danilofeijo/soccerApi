@@ -14,4 +14,4 @@ The first version will have some data about:
 - Teams (/teams)
 - Tournaments (/tournaments)
 - Players (/players)
-- Other related contents (/countries)
+- and more (if needed)

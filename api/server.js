@@ -78,11 +78,6 @@ server.get('/players', (request, response) => {
   response.send('<h1>Players</h1>');
 })
 
-// Countries endpoints
-server.get('/countries', (request, response) => {
-  response.send('<h1>Countries</h1>');
-})
-
 // Not Found endpoints
 server.get('/notfound', (request, response) => {
   response.send('<h1>Page Not Found</h1>');
