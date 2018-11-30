@@ -90,4 +90,5 @@ server.use((req, res, next) => {
 server.listen(port, () => {
   console.log(`The server is running on: http://localhost:${port}`);
   console.log('Press Ctrl-C to shutdown this server');
+  console.log('Run "node server.js" to start the server again');
 })
