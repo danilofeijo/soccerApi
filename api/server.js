@@ -62,6 +62,7 @@ server.post('/teams', (req, res) => {
   res.send(newTeam);
 })
 
+// Tournaments endpoints
 server.get('/tournaments', (request, response) => {
   response.send('<h1>Tournaments</h1>');
 })
