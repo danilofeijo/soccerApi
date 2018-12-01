@@ -5,7 +5,32 @@ const port = 8081;
 const serverUrl = `http://localhost:${port}`
 app.use(bodyParser.json());
 
-app.use(bodyParser.json());
+const TEAMS = [
+  {
+    id: 1,
+    name: 'Liverpool F.C.',
+    stadium: 'Anfield',
+    foundation: '1892',
+    city: "Liverpool",
+    country: "England"
+  },
+  {
+    id: 2,
+    name: 'Manchester United F.C.',
+    stadium: 'Old Trafford',
+    foundation: '1878',
+    city: "Manchester",
+    country: "England"
+  },
+  {
+    id: 3,
+    name: 'Tottenham Hotspur F.C.',
+    stadium: 'Wembley Stadium',
+    foundation: '1882',
+    city: "London",
+    country: "England"
+  }
+];
 
 // Home endpoints
 app.get('/', (req, res) => {
