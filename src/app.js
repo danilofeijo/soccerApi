@@ -8,6 +8,6 @@ app.use(bodyParser.json());
 // Status for user on terminal 
 app.listen(port, () => {
   console.log(`Server running on: http://localhost:${port}`);
-  console.log('Ctrl-C ==> Shutdown server');
-  console.log('$ node server.js ==> Start the server again');
+  console.log('Press "Ctrl-C" to shutdown the server');
+  console.log('Run "node server.js" again tostart the server');
 })
