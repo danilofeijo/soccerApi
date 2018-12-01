@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 // Teams endpoints
 app.get('/teams', (req, res) => {
   res.send(TEAMS);
-})
+});
 
 app.post('/teams', (req, res) => {
   const newTeam = req.body;
@@ -37,7 +37,7 @@ app.post('/teams', (req, res) => {
     addedTeam: newTeam,
     teamList: TEAMS
   });
-})
+});
 
 // Not Found endpoints
 app.get('/notfound', (req, res) => {
@@ -47,7 +47,7 @@ app.get('/notfound', (req, res) => {
   `;
 
   res.send(notFoundHTML);
-})
+});
 
 app.use((req, res, next) => {
   res.send({msg:'Endpoint not found. Try an available endpoint'});
