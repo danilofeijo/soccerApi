@@ -2,8 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 8081;
-const serverUrl = `http://localhost:${port}`
+const serverUrl = `http://localhost:${port}`;
 app.use(bodyParser.json());
+
+const availableEndpoints = `
+  <h3>List of available endpoints:</h3>
+  <li><a href='${serverUrl}/teams'>Teams</a></li>
+  `;
 
 const TEAMS = [
   {
@@ -36,8 +41,7 @@ const TEAMS = [
 app.get('/', (req, res) => {
   const homeHTML = `
   <h1>Home</h1>
-  <h3>Available endpoints:</h3>
-  <li><a href='${serverUrl}/teams'>Teams</a></li>`
+  ${availableEndpoints}`;
 
   res.send(homeHTML);
 });
@@ -58,6 +62,19 @@ app.post('/teams', (req, res) => {
   });
 })
 
+// Not Found endpoints
+app.get('/notfound', (req, res) => {
+  const notFoundHTML = `
+  <h1>Endpoint Not Found</h1>
+  ${availableEndpoints}
+  `;
+
+  res.send(notFoundHTML);
+})
+
+app.use((req, res, next) => {
+  res.send({msg:'Endpoint not found. Try an available endpoint'});
+});
 
 // Status for user on terminal 
 app.listen(port, () => {
