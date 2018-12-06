@@ -33,7 +33,7 @@ app.post('/teams', (req, res) => {
 
   res.send({
     addedTeam: newTeam,
-    teamList: TEAMS
+    teamsList: TEAMS
   });
 });
 
