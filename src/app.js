@@ -17,7 +17,17 @@ app.get('/', (req, res) => {
 
 // Teams endpoints
 app.get('/teams', (req, res) => {
-  res.send(TEAMS);
+  const reqTeamId = req.query.id;
+  const teamSearchResult = TEAMS.teams[reqTeamId]
+
+  if (!req.query.id) {
+    res.send(TEAMS);
+  } else {
+    res.send(teamSearchResult);
+  }
+
+  // adicionar validação para quando não encontrar um resultado
+
 });
 
 app.post('/teams', (req, res) => {
