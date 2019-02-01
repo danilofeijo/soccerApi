@@ -1,7 +1,7 @@
 {
   "teams": [
     {
-      "id": 1,
+      "id": 0,
       "name": "Liverpool F.C.",
       "stadium": "Anfield",
       "foundation": "1892",
@@ -9,7 +9,7 @@
       "country": "England"
     },
     {
-      "id": 2,
+      "id": 1,
       "name": "Manchester United F.C.",
       "stadium": "Old Trafford",
       "foundation": "1878",
@@ -17,12 +17,12 @@
       "country": "England"
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "Tottenham Hotspur F.C.",
       "stadium": "Wembley Stadium",
       "foundation": "1882",
       "city": "London",
       "country": "England"
-    }    
+    }
   ]
 }
