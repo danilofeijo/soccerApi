@@ -39,12 +39,7 @@ app.post('/teams', (req, res) => {
 
 // Not Found endpoints
 app.get('/notfound', (req, res) => {
-  const notFoundHTML = `
-  <h1>Endpoint Not Found</h1>
-  ${availableEndpoints}
-  `;
-
-  res.send(notFoundHTML);
+  res.send("Endpoint not found");
 });
 
 app.use((req, res, next) => {
