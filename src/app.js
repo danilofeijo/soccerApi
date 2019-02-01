@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const ENDPOINTS = require('../data/endpoints.json');
+const ENDPOINTS = require('../data/endpointsAvailable.json');
 const TEAMS = require('../data/teams.json');
 
 const app = express();
