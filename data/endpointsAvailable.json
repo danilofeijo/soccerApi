@@ -1,0 +1,8 @@
+{
+  "endpointsAvailable": [
+    {
+      "name": "Teams",
+      "url": "/teams"
+    }
+  ]
+}

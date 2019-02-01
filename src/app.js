@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+
+const ENDPOINTS = require('../data/endpoints.json');
 const TEAMS = require('../data/teams.json');
 
 const app = express();
@@ -7,15 +9,10 @@ app.use(bodyParser.json());
 
 const port = 8081;
 const serverUrl = `http://localhost:${port}`;
-const availableEndpoints = `<h3>List of available endpoints:</h3>
-                            <li><a href='${serverUrl}/teams'>Teams</a></li>`;
 
 // Home endpoints
 app.get('/', (req, res) => {
-  const homeHTML = `<h1>Home</h1>
-  ${availableEndpoints}`;
-
-  res.send(homeHTML);
+  res.send(ENDPOINTS);
 });
 
 // Teams endpoints
