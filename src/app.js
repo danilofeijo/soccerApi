@@ -57,7 +57,6 @@ app.use((req, res, next) => {
 
 // Status for user on terminal
 app.listen(port, () => {
-  console.log(`Server running on: http://localhost:${port}`);
-  console.log('Press "Ctrl-C" to shutdown the server');
-  console.log('Run "node server.js" again to start the server');
+  console.log(`Server running on: ${serverUrl}`);
+  console.log('"Ctrl-C" ---> Shutdown server.');
 });
