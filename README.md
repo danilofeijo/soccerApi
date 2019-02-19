@@ -13,16 +13,16 @@ N/A
 Setting up the environmet is quick and simple. Simply follow the instructions below
 
 ## Pre-requeriment
-Ensure that [NodeJs](4) is properly installed. (Run `node -v` to verify the current NodeJs version)
+Just ensure that [NodeJs](4) is properly installed. A nice approach to do that is running `node -v` on termianal to check the NodeJs version. If everything is Ok, the Node version should be displayed (e.g. `v8.11.4`)
 
 ## Install environment
-Open the terminal command and run...
-
-- `git clone https://github.com/danilofeijo/soccerApi.git` - Clone the repository
-- `npm install` - Install packages and their dependencies
+Open the termianal and...
+- Clone the repository - `git clone https://github.com/danilofeijo/soccerApi.git`
+- Install packages and their dependencies - `npm install`
 
 ## Start the server
-- `node src/index.js` - Start the server
+Open the termianal and...
+- Start the server - `node src/index.js`
 
 So the server must be up and running on: **http://localhost:8081**
 
