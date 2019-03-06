@@ -1,3 +1,9 @@
 {
-	"DBHost" : "YOUR_DB_URI"
+	"DBHost": {
+		"dbConfig": {
+			"host": "mongodb://127.0.0.1:27017",
+			"port": "27017",
+			"dbName": "admin"
+		}
+	}
 }
