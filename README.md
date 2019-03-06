@@ -13,7 +13,13 @@ N/A
 Setting up the environmet is quick and simple. Simply follow the instructions below
 
 ## Pre-requeriment
-Just ensure that [NodeJs](4) is properly installed. A nice approach to do that is running `node -v` on termianal to check the NodeJs version. If everything is Ok, the Node version should be displayed (e.g. `v8.11.4`)
+Be sure that [NodeJs](4) and [MongoDB](5) are properly installed.
+
+### NodeJs
+A nice approach to do that is running `node -v` on termianal to check the NodeJs version. If everything is Ok, the Node version should be displayed (e.g. `v8.11.4`).
+
+### MongoDB
+Follow a nice tutorial about [How to Install MongoDB][6].
 
 ## Install environment
 Open the termianal and...
@@ -31,3 +37,5 @@ So the server must be up and running on: **http://localhost:8081**
 [2]: https://mochajs.org
 [3]: https://www.chaijs.com
 [4]: https://nodejs.org
+[5]: https://www.mongodb.com/download-center/community
+[6]: https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04
