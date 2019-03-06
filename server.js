@@ -59,7 +59,7 @@ app.get('/notfound', (req, res) => {
 
 // Status for user on terminal
 app.listen(port, () => {
-	console.log(`Server running on: ${serverUrl}`);
+	console.log(`The magic happens on: ${serverUrl}`);
 });
 
 module.exports = app;
