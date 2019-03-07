@@ -29,7 +29,7 @@ mongoose.connect(config.DBHost, options);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
 
-// don't show  the log when it is test
+// don't show the log when it is test
 if (config.util.getEnv('NODE_ENV') !== 'test') {
 	//use morgan to log at command line
 	app.use(morgan('combined'));
@@ -49,7 +49,7 @@ app.route('/team')
 	.get(team.getTeams)
 	.post(team.postTeam);
 app.route('/team/:id')
-	.get(team.getTeams)
+	.get(team.getTeam)
 	.delete(team.deleteTeam)
 	.put(team.updateTeam);
 

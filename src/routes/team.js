@@ -48,7 +48,7 @@ function getTeam(req, res) {
  * DELETE /team/:id route to delete an specific team.
  */
 function deleteTeam(req, res) {
-	Team.remove({_id: req.params.id }, (err, result) => {
+	Team.remove({_id: req.params.id}, (err, result) => {
 		if (err) res.send(err);
 		res.json({
 			message: 'Team successfully deleted!',
@@ -61,7 +61,7 @@ function deleteTeam(req, res) {
  * PUT /team/:id route to update an specific team.
  */
 function updateTeam(req, res) {
-	Team.findById({_id: req.params.id }, (err, team) => {
+	Team.findById({_id: req.params.id}, (err, team) => {
 		if (err) res.send(err);
 		Object.assign(team, req.body).save((err, team) => {
 			if (err) res.send(err);
