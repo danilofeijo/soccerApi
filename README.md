@@ -1,13 +1,21 @@
 # What is soccerApi?
-It's a project created to develop simple endpoints with [Express](1) and apply test automation with [Mocha](2) and [Chai](3). They are packages from [NodeJs](4) plataform.
+It's a project created to develop basic REST API endpoints with [Express](1) and [MongoDB](5), and also apply automated tests with [Mocha](2) and [Chai](3).
 
-# What we have right now?
+Express, Mocha and Chai are all packages from [NodeJs](4) plataform, while MongoDB is a database program that used to store our data.
+
+# What is already developed?
 
 ## Api development side
-- GET request for Teams endpoint ("/teams")
+
+### Team endpoint - /team
+- GET
+- GET by ID
+- POST
+- PUT
+- DELETE
 
 ## Test Automation side
-N/A
+Coming soon.
 
 # Environment Set Up
 Setting up the environmet is quick and simple. Simply follow the instructions below
@@ -15,11 +23,15 @@ Setting up the environmet is quick and simple. Simply follow the instructions be
 ## Pre-requeriment
 Be sure that [NodeJs](4) and [MongoDB](5) are properly installed.
 
-### NodeJs
-A nice approach to do that is running `node -v` on termianal to check the NodeJs version. If everything is Ok, the Node version should be displayed (e.g. `v8.11.4`).
+### Install NodeJs
+Try a tutorial about [how to install latest NodeJs on Ubuntu](7).
 
-### MongoDB
-Follow a nice tutorial about [How to Install MongoDB][6].
+PS.: You can check the Node version by running `node -v` on termianal. If everything is Ok, the Node version should be displayed (e.g. `v8.11.4`).
+
+### Install MongoDB
+Try a tutorial about [How to Install MongoDB](6).
+
+PS.: You can check MongoDB status by running `sudo systemctl status mongodb` on termianal. If everything is Ok, MongoDB should has the "Active" status.
 
 ## Install environment
 Open the termianal and...
@@ -28,7 +40,7 @@ Open the termianal and...
 
 ## Start the server
 Open the termianal and...
-- Start the server - `node src/index.js`
+- Start the server - `npm start`
 
 So the server must be up and running on: **http://localhost:8081**
 
@@ -39,3 +51,4 @@ So the server must be up and running on: **http://localhost:8081**
 [4]: https://nodejs.org
 [5]: https://www.mongodb.com/download-center/community
 [6]: https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04
+[7]: https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/
