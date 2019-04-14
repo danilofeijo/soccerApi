@@ -9,7 +9,6 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../server');
 const should = chai.should();
-const expect = require('chai').expect;
 
 chai.use(chaiHttp);
 // ? Our parent block
@@ -58,7 +57,6 @@ describe('Teams endpoint testing', () => {
             res.body.should.have.property('venueStadium');
             res.body.should.have.property('venueCapacity');
             res.body.should.have.property('_id').eql(team.id);
-            expect(res.body._id).to.equal(team.id);
           });
       });
     });
