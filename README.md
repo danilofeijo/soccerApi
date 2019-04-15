@@ -47,6 +47,9 @@ So the server must be up and running on: **http://localhost:8081**
 Open the terminal and...
 - Run the tests - `npm test`
 
+# Reference
+This content is based on a [Scotch post](8) writen by [Samuele Zaza](9).
+
 <!-- Links list -->
 [1]: https://expressjs.com
 [2]: https://mochajs.org
@@ -55,3 +58,5 @@ Open the terminal and...
 [5]: https://www.mongodb.com/download-center/community
 [6]: https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04
 [7]: https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/
+[8]: https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
+[9]: https://scotch.io/@samuxyz
