@@ -100,25 +100,27 @@ describe('Teams endpoint testing', () => {
  * Tests for /PUT route
  */
   describe('/PUT team tests', () => {
-    it('It should PUT a team by id', () => {
-      const team = new Team({
-        name: 'Wigan Athletic',
-        country: 'England',
-        foundationDate: '1892-03-15',
-        venueStadium: 'Anfield',
+    it('It should PUT a team by ID', (done) => {
+      const originalTeamData = new Team({
+        name: 'Juventus Mooca',
+        country: 'Brazil',
+        foundationDate: '1800-01-01',
+        venueStadium: 'Rua Javari',
         venueCapacity: 500
       });
 
-      team.save((err, team) => {
+      originalTeamData.save((err, team) => {
+        const editedTeamData = {
+          name: 'Liverpool',
+          country: 'England',
+          foundationDate: '1892-03-15',
+          venueStadium: 'Anfield',
+          venueCapacity: 54074
+        }
+
         chai.request(server)
           .put('/team/' + team.id)
-          .send({
-            name: 'Liverpool',
-            country: 'England',
-            foundationDate: '1892-03-15',
-            venueStadium: 'Anfield',
-            venueCapacity: 54074
-          })
+          .send(editedTeamData)
           .end((err, res) => {
             res.should.have.status(200);
             res.body.should.be.a('object');
