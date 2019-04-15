@@ -48,7 +48,7 @@ function getTeam(req, res) {
  * DELETE /team/:id route to delete an specific team.
  */
 function deleteTeam(req, res) {
-  Team.remove({_id: req.params.id}, (err, result) => {
+  Team.deleteMany({_id: req.params.id}, (err, result) => {
     if (err) res.send(err);
     res.json({
       message: 'Team successfully deleted!',
