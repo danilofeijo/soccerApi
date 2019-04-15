@@ -5,17 +5,16 @@ Express, Mocha and Chai are all packages from [NodeJs](4) plataform, while Mongo
 
 # What is already developed?
 
-## Api development side
+## API development side
 
-### Team endpoint - /team
-- GET
-- GET by ID
+The /team endpoint provides the folowing methods:
+- GET (all and by ID)
 - POST
 - PUT
 - DELETE
 
-## Test Automation side
-Coming soon.
+## API Tests side
+For now, we have the basic scenarios are covered by automated tests.
 
 # Environment Set Up
 Setting up the environmet is quick and simple. Simply follow the instructions below
@@ -34,15 +33,19 @@ Try a tutorial about [How to Install MongoDB](6).
 PS.: You can check MongoDB status by running `sudo systemctl status mongodb` on termianal. If everything is Ok, MongoDB should has the "Active" status.
 
 ## Install environment
-Open the termianal and...
+Open the terminal and...
 - Clone the repository - `git clone https://github.com/danilofeijo/soccerApi.git`
 - Install packages and their dependencies - `npm install`
 
 ## Start the server
-Open the termianal and...
+Open the terminal and...
 - Start the server - `npm start`
 
 So the server must be up and running on: **http://localhost:8081**
+
+## Run all the automated tests
+Open the terminal and...
+- Run the tests - `npm test`
 
 <!-- Links list -->
 [1]: https://expressjs.com
