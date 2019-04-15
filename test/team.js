@@ -134,24 +134,27 @@ describe('Teams endpoint testing', () => {
   });
 
   describe('/DELETE team tests', () => {
-    const team = new Team({
-      name: 'Wigan Athletic',
-      country: 'England',
-      foundationDate: '1892-03-15',
-      venueStadium: 'Anfield',
-      venueCapacity: 500
-    });
+    it('It should DELETE a team by ID', (done) => {
+      const originalTeamData = new Team({
+        name: 'Wigan Athletic',
+        country: 'England',
+        foundationDate: '1892-03-15',
+        venueStadium: 'DW Stadium',
+        venueCapacity: 25133
+      });
 
-    team.save((err, team) => {
-      chai.request(server)
-        .delete('/team/' + team.id)
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a('object');
-          res.body.should.have.property('message').eql('Team successfully deleted!');
-          res.body.result.should.have.property('ok').eql(1);
-          res.body.result.should.have.property('n').eql(1);
-        });
+      originalTeamData.save((err, team) => {
+        chai.request(server)
+          .delete('/team/' + team.id)
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            res.body.should.have.property('message').eql('Team successfully deleted!');
+            res.body.result.should.have.property('ok').eql(1);
+            res.body.result.should.have.property('n').eql(1);
+            done();
+          });
+      });
     });
   });
 });
