@@ -11,6 +11,7 @@ const server = require('../server');
 const should = chai.should();
 
 chai.use(chaiHttp);
+
 // ? Our parent block
 describe('Teams endpoint testing', () => {
 
@@ -25,18 +26,19 @@ describe('Teams endpoint testing', () => {
    * Tests for /GET route
    */
   describe('/GET team tests', () => {
-    it('It should GET all teams', () => {
+    it('It should GET all teams', (done) => {
       chai.request(server)
         .get('/team')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('array');
           res.body.length.should.be.eql(0);
+          done();
         });
     });
 
-    it('It should GET a team by given ID', () => {
-      const team = new Team({
+    it('It should GET a team by given ID', (done) => {
+      const teamData = new Team({
         name: 'Derby County',
         country: 'England',
         foundationDate: '1884-02-05',
@@ -44,7 +46,7 @@ describe('Teams endpoint testing', () => {
         venueCapacity: 33597
       });
 
-      team.save((err, team) => {
+      teamData.save((err, team) => {
         chai.request(server)
           .get('/team/' + team.id)
           .send(team)
@@ -57,6 +59,7 @@ describe('Teams endpoint testing', () => {
             res.body.should.have.property('venueStadium');
             res.body.should.have.property('venueCapacity');
             res.body.should.have.property('_id').eql(team.id);
+            done();
           });
       });
     });
@@ -67,8 +70,8 @@ describe('Teams endpoint testing', () => {
    * Tests for /POST route
    */
   describe('/POST team tests', () => {
-    it('It should POST a new Team', () => {
-      const newTeam = {
+    it('It should POST a new Team', (done) => {
+      const newTeamData = {
         name: 'Manchester United',
         country: 'England',
         foundationDate: '1878-03-05',
@@ -78,7 +81,7 @@ describe('Teams endpoint testing', () => {
 
       chai.request(server)
         .post('/team')
-        .send(newTeam)
+        .send(newTeamData)
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -88,6 +91,7 @@ describe('Teams endpoint testing', () => {
           res.body.team.should.have.property('foundationDate');
           res.body.team.should.have.property('venueStadium');
           res.body.team.should.have.property('venueCapacity');
+          done();
         });
     });
   });
@@ -121,6 +125,7 @@ describe('Teams endpoint testing', () => {
             res.body.should.have.property('message').eql('Team successfully updated!');
             res.body.team.should.have.property('name').eql('Liverpool');
             res.body.team.should.have.property('venueCapacity').eql(54074);
+            done();
           });
       });
     });
