@@ -63,7 +63,6 @@ describe('Teams endpoint testing', () => {
           });
       });
     });
-
   });
 
   /**
@@ -77,7 +76,7 @@ describe('Teams endpoint testing', () => {
         foundationDate: '1878-03-05',
         venueStadium: 'Old Trafford',
         venueCapacity: 74994
-      }
+      };
 
       chai.request(server)
         .post('/team')
@@ -91,6 +90,27 @@ describe('Teams endpoint testing', () => {
           res.body.team.should.have.property('foundationDate');
           res.body.team.should.have.property('venueStadium');
           res.body.team.should.have.property('venueCapacity');
+          done();
+        });
+    });
+
+    it('It should not POST a team without name', (done) => {
+      const newTeamData = {
+        name: '',
+        country: 'England',
+        foundationDate: '1886-12-01',
+        venueStadium: 'Emirates Stadium',
+        venueCapacity: 60260
+      };
+
+      chai.request(server)
+        .post('/team')
+        .send(newTeamData)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.errors.should.have.property('name');
+          res.body.should.have.property('message').eql('team validation failed: name: Path `name` is required.');
           done();
         });
     });
@@ -116,7 +136,7 @@ describe('Teams endpoint testing', () => {
           foundationDate: '1892-03-15',
           venueStadium: 'Anfield',
           venueCapacity: 54074
-        }
+        };
 
         chai.request(server)
           .put('/team/' + team.id)
