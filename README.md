@@ -1,7 +1,7 @@
 # What is soccerApi?
-It's a project created to develop basic REST API endpoints with [Express](1) and [MongoDB](5), and also apply automated tests with [Mocha](2) and [Chai](3).
+It's a project created to develop basic REST API endpoints with [Express][1] and [MongoDB][5], and also apply automated tests with [Mocha][2] and [Chai][3].
 
-Express, Mocha and Chai are all packages from [NodeJs](4) plataform, while MongoDB is a database program that used to store our data.
+Express, Mocha and Chai are all packages from [NodeJs][4] plataform, while MongoDB is a database program that used to store our data.
 
 # What is already developed?
 
@@ -20,15 +20,15 @@ For now, we have the basic scenarios are covered by automated tests.
 Setting up the environmet is quick and simple. Simply follow the instructions below
 
 ## Pre-requeriment
-Be sure that [NodeJs](4) and [MongoDB](5) are properly installed.
+Be sure that [NodeJs][4] and [MongoDB][5] are properly installed.
 
 ### Install NodeJs
-Try a tutorial about [how to install latest NodeJs on Ubuntu](7).
+Try a tutorial about [how to install latest NodeJs on Ubuntu][7].
 
 PS.: You can check the Node version by running `node -v` on termianal. If everything is Ok, the Node version should be displayed (e.g. `v8.11.4`).
 
 ### Install MongoDB
-Try a tutorial about [How to Install MongoDB](6).
+Try a tutorial about [How to Install MongoDB][6].
 
 PS.: You can check MongoDB status by running `sudo systemctl status mongodb` on termianal. If everything is Ok, MongoDB should has the "Active" status.
 
@@ -48,7 +48,7 @@ Open the terminal and...
 - Run the tests - `npm test`
 
 # Reference
-This content is based on a [Scotch post](8) writen by [Samuele Zaza](9).
+This content is based on a [Scotch post][8] writen by [Samuele Zaza][9].
 
 <!-- Links list -->
 [1]: https://expressjs.com
