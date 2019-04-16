@@ -114,6 +114,27 @@ describe('Teams endpoint testing', () => {
           done();
         });
     });
+
+    it('It should not create a team without country', (done) => {
+      const newTeamData = {
+        name: 'Arsenal',
+        country: '',
+        foundationDate: '1886-12-01',
+        venueStadium: 'Emirates Stadium',
+        venueCapacity: 60260
+      };
+
+      chai.request(server)
+        .post('/team')
+        .send(newTeamData)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.errors.should.have.property('country');
+          res.body.should.have.property('message').eql('team validation failed: country: Path `country` is required.');
+          done();
+        });
+    });
   });
 
   /**
