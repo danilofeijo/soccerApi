@@ -26,7 +26,7 @@ describe('Teams endpoint testing', () => {
    * Tests for /GET route
    */
   describe('/GET team tests', () => {
-    it('It should GET all teams', (done) => {
+    it('It should return all teams', (done) => {
       chai.request(server)
         .get('/team')
         .end((err, res) => {
@@ -37,7 +37,7 @@ describe('Teams endpoint testing', () => {
         });
     });
 
-    it('It should GET a team by given ID', (done) => {
+    it('It should return a team by given ID', (done) => {
       const teamData = new Team({
         name: 'Derby County',
         country: 'England',
@@ -69,7 +69,7 @@ describe('Teams endpoint testing', () => {
    * Tests for /POST route
    */
   describe('/POST team tests', () => {
-    it('It should POST a new Team', (done) => {
+    it('It should create a new Team', (done) => {
       const newTeamData = {
         name: 'Manchester United',
         country: 'England',
@@ -94,7 +94,7 @@ describe('Teams endpoint testing', () => {
         });
     });
 
-    it('It should not POST a team without name', (done) => {
+    it('It should not create a team without name', (done) => {
       const newTeamData = {
         name: '',
         country: 'England',
@@ -141,7 +141,7 @@ describe('Teams endpoint testing', () => {
  * Tests for /PUT route
  */
   describe('/PUT team tests', () => {
-    it('It should PUT a team by ID', (done) => {
+    it('It should edit a team by ID', (done) => {
       const originalTeamData = new Team({
         name: 'Juventus Mooca',
         country: 'Brazil',
@@ -175,7 +175,7 @@ describe('Teams endpoint testing', () => {
   });
 
   describe('/DELETE team tests', () => {
-    it('It should DELETE a team by ID', (done) => {
+    it('It should delete a team by ID', (done) => {
       const originalTeamData = new Team({
         name: 'Wigan Athletic',
         country: 'England',
