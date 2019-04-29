@@ -49,11 +49,32 @@ function getTeam(req, res) {
  */
 function deleteTeam(req, res) {
   Team.deleteMany({_id: req.params.id}, (err, result) => {
-    if (err) res.send(err);
-    res.json({
-      message: 'Team successfully deleted!',
-      result
-    });
+    if (err) {
+      res.json({
+        message: 'Test - No teams were found with given Id. Try again.',
+      });
+    } else {
+      switch (result.n) {
+        case 1:
+          res.json({
+            message: 'Team successfully deleted!',
+            result
+          });
+          break;
+        case 0:
+          res.json({
+            message: 'Postmam - No teams were found with given Id. Try again.',
+            result
+          });
+          break;
+        default:
+          res.json({
+            message: 'Something gone wrong. Check the result.',
+            result
+          });
+        break;
+      };
+    };
   });
 };
 
@@ -62,7 +83,9 @@ function deleteTeam(req, res) {
  */
 function updateTeam(req, res) {
   Team.findById({_id: req.params.id}, (err, team) => {
-    if (err) res.send(err);
+    if (err) {
+      res.send(err);
+    }
     Object.assign(team, req.body).save((err, team) => {
       if (err) res.send(err);
       res.json({

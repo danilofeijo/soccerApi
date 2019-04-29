@@ -26,7 +26,7 @@ describe('Teams endpoint testing', () => {
    * Tests for /GET route
    */
   describe('/GET team tests', () => {
-    it('It should GET all teams', (done) => {
+    it('It should return all teams', (done) => {
       chai.request(server)
         .get('/team')
         .end((err, res) => {
@@ -37,7 +37,7 @@ describe('Teams endpoint testing', () => {
         });
     });
 
-    it('It should GET a team by given ID', (done) => {
+    it('It should return a team by given ID', (done) => {
       const teamData = new Team({
         name: 'Derby County',
         country: 'England',
@@ -63,21 +63,20 @@ describe('Teams endpoint testing', () => {
           });
       });
     });
-
   });
 
   /**
    * Tests for /POST route
    */
   describe('/POST team tests', () => {
-    it('It should POST a new Team', (done) => {
+    it('It should create a new Team', (done) => {
       const newTeamData = {
         name: 'Manchester United',
         country: 'England',
         foundationDate: '1878-03-05',
         venueStadium: 'Old Trafford',
         venueCapacity: 74994
-      }
+      };
 
       chai.request(server)
         .post('/team')
@@ -94,13 +93,56 @@ describe('Teams endpoint testing', () => {
           done();
         });
     });
+
+    it('It should not create a team without name', (done) => {
+      const newTeamData = {
+        name: '',
+        country: 'England',
+        foundationDate: '1886-12-01',
+        venueStadium: 'Emirates Stadium',
+        venueCapacity: 60260
+      };
+
+      chai.request(server)
+        .post('/team')
+        .send(newTeamData)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.errors.should.have.property('name');
+          res.body.should.have.property('message').eql('team validation failed: name: Path `name` is required.');
+          done();
+        });
+    });
+
+    it('It should not create a team without country', (done) => {
+      const newTeamData = {
+        name: 'Arsenal',
+        country: '',
+        foundationDate: '1886-12-01',
+        venueStadium: 'Emirates Stadium',
+        venueCapacity: 60260
+      };
+
+      chai.request(server)
+        .post('/team')
+        .send(newTeamData)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors.should.have.property('country');
+          res.body.should.have.property('message').eql('team validation failed: country: Path `country` is required.');
+          done();
+        });
+    });
   });
 
   /**
  * Tests for /PUT route
  */
   describe('/PUT team tests', () => {
-    it('It should PUT a team by ID', (done) => {
+    it('It should edit a team by ID', (done) => {
       const originalTeamData = new Team({
         name: 'Juventus Mooca',
         country: 'Brazil',
@@ -116,7 +158,7 @@ describe('Teams endpoint testing', () => {
           foundationDate: '1892-03-15',
           venueStadium: 'Anfield',
           venueCapacity: 54074
-        }
+        };
 
         chai.request(server)
           .put('/team/' + team.id)
@@ -133,8 +175,11 @@ describe('Teams endpoint testing', () => {
     });
   });
 
+  /**
+ * Tests for /DELETE route
+ */
   describe('/DELETE team tests', () => {
-    it('It should DELETE a team by ID', (done) => {
+    it('It should delete a team by ID', (done) => {
       const originalTeamData = new Team({
         name: 'Wigan Athletic',
         country: 'England',
@@ -155,6 +200,34 @@ describe('Teams endpoint testing', () => {
             done();
           });
       });
+    });
+
+    it('It should not delete any team when use a wrong ID', (done) => {
+      const originalTeamData = new Team({
+        name: 'Wigan Athletic',
+        country: 'England',
+        foundationDate: '1892-03-15',
+        venueStadium: 'DW Stadium',
+        venueCapacity: 25133
+      });
+
+      chai.request(server)
+        .post('/team')
+        .send(originalTeamData)
+        .end((err, res) => {
+          res.should.have.status(200);
+        });
+
+      const wrongTeamId = '0000xxxx1111yyyy2222zzzz';
+
+      chai.request(server)
+        .delete('/team/' + wrongTeamId)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('Test - No teams were found with given Id. Try again.');
+          done();
+        });
     });
   });
 });
