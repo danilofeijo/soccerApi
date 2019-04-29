@@ -130,6 +130,7 @@ describe('Teams endpoint testing', () => {
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
+          res.body.should.have.property('errors');
           res.body.errors.should.have.property('country');
           res.body.should.have.property('message').eql('team validation failed: country: Path `country` is required.');
           done();
@@ -174,6 +175,9 @@ describe('Teams endpoint testing', () => {
     });
   });
 
+  /**
+ * Tests for /DELETE route
+ */
   describe('/DELETE team tests', () => {
     it('It should delete a team by ID', (done) => {
       const originalTeamData = new Team({
@@ -196,6 +200,34 @@ describe('Teams endpoint testing', () => {
             done();
           });
       });
+    });
+
+    it('It should not delete any team when use a wrong ID', (done) => {
+      const originalTeamData = new Team({
+        name: 'Wigan Athletic',
+        country: 'England',
+        foundationDate: '1892-03-15',
+        venueStadium: 'DW Stadium',
+        venueCapacity: 25133
+      });
+
+      chai.request(server)
+        .post('/team')
+        .send(originalTeamData)
+        .end((err, res) => {
+          res.should.have.status(200);
+        });
+
+      const wrongTeamId = '0000xxxx1111yyyy2222zzzz';
+
+      chai.request(server)
+        .delete('/team/' + wrongTeamId)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('Test - No teams were found with given Id. Try again.');
+          done();
+        });
     });
   });
 });

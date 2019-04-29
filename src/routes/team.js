@@ -54,7 +54,6 @@ function deleteTeam(req, res) {
         message: 'Test - No teams were found with given Id. Try again.',
       });
     } else {
-      console.log(result);
       switch (result.n) {
         case 1:
           res.json({
