@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "7807ab25-5c4d-4a2e-a124-1885f071dccb",
+		"name": "soccerApi",
+		"description": "Just a Lorem Ipsum API created to learn new skills and practice test automation in the future.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - All Teams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/team",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"team"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Team by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/team/5cc44193aa963510f5e72386",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"team",
+						"5cc44193aa963510f5e72386"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - New Team",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Everton F.C.\",\n\t\"country\": \"England\",\n\t\"foundationDate\": \"1878-06-01\",\n\t\"venueStadium\": \"Goodison Park\",\n\t\"venueCapacity\": 39571\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/team",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"team"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Team by ID",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "teste",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "brasil",
+							"type": "text"
+						},
+						{
+							"key": "foundationDate",
+							"value": " 1884-01-01",
+							"type": "text"
+						},
+						{
+							"key": "venueStadium",
+							"value": " King Power Stadium",
+							"type": "text"
+						},
+						{
+							"key": "venueCapacity",
+							"value": "32312",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/team/5cc35c2ca79789103ac831ea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"team",
+						"5cc35c2ca79789103ac831ea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Team by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": " LLLLLiverpool F.C.,",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": " England,",
+							"type": "text"
+						},
+						{
+							"key": "stadium",
+							"value": " Anfield,",
+							"type": "text"
+						},
+						{
+							"key": "foundationDate",
+							"value": " 1899-12-01",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/team/5cc75271d416f2633151ad34",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"team",
+						"5cc75271d416f2633151ad34"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

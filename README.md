@@ -55,6 +55,9 @@ So the server must be up and running on: **http://localhost:8081**
 Open the terminal and...
 - Run the tests - `npm test`
 
+## Postman collection
+You may want to use [Postman][10] to call the SoccerAPI endpoints. If so, you can [import collection on Postman][11] using the `postmanCollection.json` file (stored on root folder). 
+
 # Reference
 This content is based on a [Scotch post][8] writen by [Samuele Zaza][9].
 
@@ -68,3 +71,5 @@ This content is based on a [Scotch post][8] writen by [Samuele Zaza][9].
 [7]: https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/
 [8]: https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 [9]: https://scotch.io/@samuxyz
+[10]: https://www.getpostman.com/
+[11]: https://learning.getpostman.com/docs/postman/collection_runs/working_with_data_files/#importing-sample-collection-files
