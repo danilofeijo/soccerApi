@@ -14,7 +14,15 @@ The /team endpoint provides the folowing methods:
 - DELETE
 
 ## API Tests side
-For now, we have the basic scenarios are covered by automated tests.
+We have basic scenarios for given methods:
+- GET (all and by ID)
+- POST
+- PUT
+- DELETE
+
+We also have alternative scenarios for given methods:
+- POST
+- DELETE
 
 # Environment Set Up
 Setting up the environmet is quick and simple. Simply follow the instructions below
